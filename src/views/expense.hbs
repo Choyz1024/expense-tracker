@@ -1,0 +1,36 @@
+<div class='d-flex flex-column bd-highlight justify-content-center align-items-center'>
+  <div class='fs-1 mt-5'>新增支出</div>
+  <form class='mt-5 w-25' action='/expense' method='POST'>
+    <div class='d-inline-flex align-items-center mb-5 w-100'>
+      <label for='name' class='form-label'>名稱<span class='text-danger'>*</span>：</label>
+      <input type='text' class='form-control w-75 border border-dark' id='name' name='name' required />
+    </div>
+    <div class='d-inline-flex align-items-center mb-5 w-100'>
+      <label for='date' class='form-label'>日期<span class='text-danger'>*</span>：</label>
+      <input type='date' class='form-control w-75 border border-dark' id='date' name='date' required />
+    </div>
+    <div class='d-inline-flex align-items-center mb-5 w-100'>
+      <label for='category' class='form-label'>類別<span class='text-danger'>*</span>：</label>
+      <select class='form-control w-75 border border-dark' id='category' name='category' required>
+        <option value='' disabled selected hidden>類別</option>
+        {{#each categoryData}}
+          <option value='{{this.id}}'>{{this.name}}</option>
+        {{/each}}
+      </select>
+    </div>
+    <div class='d-inline-flex align-items-center mb-5 w-100'>
+      <label for='expense' class='form-label'>金額<span class='text-danger'>*</span>：</label>
+      <input
+        type='text'
+        class='form-control w-75 border border-dark'
+        id='expense'
+        name='expense'
+        required
+        oninput="value=value.replace(/[^\d]/g,'')"
+      />
+    </div>
+    <div class='text-center m-3'>
+      <button type='submit' class='btn btn-success'>Submit</button>
+    </div>
+  </form>
+</div>
