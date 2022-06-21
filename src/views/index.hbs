@@ -1,1 +1,83 @@
-<h2 class="css-test">記帳本</h2>
+<div class='d-flex flex-column bd-highlight justify-content-center align-items-center'>
+  <form class='mt-5 w-25'>
+    <div class='input-group'>
+      <select class='form-control' id='sort' name='sort' onchange='form.submit()'>
+        <option value='{{sort}}' hidden>{{sortKey}}</option>
+        <option value=''>類別</option>
+        <option value='housing'>家居物業</option>
+        <option value='transportation'>交通出行</option>
+        <option value='entertainment'>休閒娛樂</option>
+        <option value='food'>餐飲食品</option>
+        <option value='other'>其他</option>
+      </select>
+    </div>
+  </form>
+  <div class='total mt-5 w-25'>
+    <div class='fw-bold'>總金額：</div>
+    <div class='float-end fw-bold mx-3' style='color: darkorange; font-size: 500%;'>12345</div>
+  </div>
+  <div class='mt-5 w-25'>
+    <table class='table table-striped'>
+      <tr>
+        <th>
+          <div class='expense d-flex align-items-center justify-content-between'>
+            <div class='d-flex align-items-center'>
+              <i class='fa-solid fa-utensils fa-2xl mx-3 text-info'></i>
+              <div>
+                <div class='fs-4'>午餐</div>
+                <div class='fw-light'>2022/6/21</div>
+              </div>
+            </div>
+            <div class='mx-3'>260</div>
+            <div class='expense-btn'>
+              <button type='button' class='btn btn-outline-info btn-sm'>Edit</button>
+              <button type='button' class='btn btn-danger btn-sm'>Delete</button>
+            </div>
+          </div>
+        </th>
+      </tr>
+      <tr>
+        <th>
+          <div class='expense d-flex align-items-center justify-content-between'>
+            <div class='d-flex align-items-center'>
+              <i class='fa-solid fa-utensils fa-2xl mx-3 text-info'></i>
+              <div>
+                <div class='fs-4'>晚餐</div>
+                <div class='fw-light'>2022/6/21</div>
+              </div>
+            </div>
+            <div class='mx-3'>1260</div>
+            <div class='expense-btn'>
+              <button type='button' class='btn btn-outline-info btn-sm'>Edit</button>
+              <button type='button' class='btn btn-danger btn-sm'>Delete</button>
+            </div>
+          </div>
+        </th>
+      </tr>
+      <tr>
+        <th>
+          <div class='expense d-flex align-items-center justify-content-between'>
+            <div class='d-flex align-items-center'>
+              <i class='fa-solid fa-utensils fa-2xl mx-3 text-info'></i>
+              <div>
+                <div class='fs-4'>早餐</div>
+                <div class='fw-light'>2022/6/22</div>
+              </div>
+            </div>
+            <div class='mx-3'>60</div>
+            <div class='expense-btn'>
+              <button type='button' class='btn btn-outline-info btn-sm'>Edit</button>
+              <button type='button' class='btn btn-danger btn-sm'>Delete</button>
+            </div>
+          </div>
+        </th>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<div class='fixed-bottom text-center m-3'>
+  <a href='/expanse/new' type='button' class='btn btn-success btn-create w-25'>
+    新增支出
+  </a>
+</div>

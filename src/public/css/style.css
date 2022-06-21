@@ -1,0 +1,13 @@
+.body-container {
+  margin-top: 3%;
+}
+
+.expense {
+  position: relative;
+}
+
+.expense-btn {
+  position: absolute;
+  top: 12px;
+  right: -150px;
+}
