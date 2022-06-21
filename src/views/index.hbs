@@ -2,13 +2,10 @@
   <form class='mt-5 w-25'>
     <div class='input-group'>
       <select class='form-control' id='sort' name='sort' onchange='form.submit()'>
-        <option value='{{sort}}' hidden>{{sortKey}}</option>
-        <option value=''>類別</option>
-        <option value='housing'>家居物業</option>
-        <option value='transportation'>交通出行</option>
-        <option value='entertainment'>休閒娛樂</option>
-        <option value='food'>餐飲食品</option>
-        <option value='other'>其他</option>
+        <option value='0' hidden>類別</option>
+        {{#each categoryData}}
+        <option value='{{this.id}}'>{{this.name}}</option>
+        {{/each}}
       </select>
     </div>
   </form>
