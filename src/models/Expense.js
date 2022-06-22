@@ -15,7 +15,7 @@ const expenseSchema = new Schema({
     required: true,
   },
   categoryId: {
-    type: Number,
+    type: String,
     ref: 'Category',
     index: true,
     required: true,

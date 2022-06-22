@@ -12,11 +12,11 @@ router.get('/', async (req, res) => {
 
   const sort = req.query.sort
   const sortKey = sort ? { categoryId: sort } : {}
-  const sortName = sort ? categoryData.find((category) => Number(sort) === category.id).name : '類別'
+  const sortName = sort ? categoryData.find((category) => sort === category.id).name : '類別'
 
   const expenseData = await Expense.find(sortKey)
     .lean()
-    .sort('_id')
+    .sort('date')
     .catch((err) => console.log(err))
 
   let totalAmount = 0

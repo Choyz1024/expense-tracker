@@ -1,20 +1,29 @@
 <div class='d-flex flex-column bd-highlight justify-content-center align-items-center'>
+  {{#if expense}}
+  <div class='fs-1 mt-5'>修改支出</div>
+  <form class='mt-5 w-25' action='/expense/{{expense._id}}?_method=PUT' method='POST'>
+  {{else}}
   <div class='fs-1 mt-5'>新增支出</div>
   <form class='mt-5 w-25' action='/expense' method='POST'>
+  {{/if}}
     <div class='d-inline-flex align-items-center mb-5 w-100'>
       <label for='name' class='form-label'>名稱<span class='text-danger'>*</span>：</label>
-      <input type='text' class='form-control w-75 border border-dark' id='name' name='name' required />
+      <input type='text' class='form-control w-75 border border-dark' id='name' name='name' value ='{{expense.name}}' required />
     </div>
     <div class='d-inline-flex align-items-center mb-5 w-100'>
       <label for='date' class='form-label'>日期<span class='text-danger'>*</span>：</label>
-      <input type='date' class='form-control w-75 border border-dark' id='date' name='date' required />
+      <input type='date' class='form-control w-75 border border-dark' id='date' name='date' value ='{{expense.date}}' required />
     </div>
     <div class='d-inline-flex align-items-center mb-5 w-100'>
       <label for='category' class='form-label'>類別<span class='text-danger'>*</span>：</label>
-      <select class='form-control w-75 border border-dark' id='category' name='category' required>
-        <option value='' disabled selected hidden>類別</option>
+      <select class='form-control w-75 border border-dark' id='categoryId' name='categoryId' required>
+        {{#if expense}}
+        <option value={{expense.categoryId}} selected hidden>{{expense.categoryName}}</option>
+        {{else}}
+        <option value='' hidden>類別</option>
+        {{/if}}
         {{#each categoryData}}
-          <option value='{{this.id}}'>{{this.name}}</option>
+          <option value={{this.id}}>{{this.name}}</option>
         {{/each}}
       </select>
     </div>
@@ -25,12 +34,19 @@
         class='form-control w-75 border border-dark'
         id='expense'
         name='expense'
-        required
+        value ="{{expense.expense}}"
         oninput="value=value.replace(/[^\d]/g,'')"
+        required
       />
     </div>
     <div class='text-center m-3'>
-      <button type='submit' class='btn btn-success'>Submit</button>
+      <button type='submit' class='btn btn-success'>
+        {{#if expense}}
+        修改支出
+        {{else}}
+        新增支出
+        {{/if}}
+      </button>
     </div>
   </form>
 </div>
