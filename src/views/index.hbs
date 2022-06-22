@@ -9,21 +9,24 @@
   </form>
   <div class='total mt-5 w-25'>
     <div class='fw-bold'>總金額：</div>
-    <div class='float-end fw-bold mx-3' style='color: darkorange; font-size: 500%;'>12345</div>
+    <div class='float-end fw-bold mx-3' style='color: darkorange; font-size: 500%;'>{{totalAmount}}</div>
   </div>
+
+{{#if expenseData}}
   <div class='mt-5 w-25'>
     <table class='table table-striped'>
+      {{#each expenseData}}
       <tr>
         <th>
           <div class='expense d-flex align-items-center justify-content-between'>
             <div class='d-flex align-items-center'>
-              <i class='fa-solid fa-utensils fa-2xl mx-3 text-info'></i>
+              <i class='{{this.categoryId.icon}} fa-2xl mx-3 text-info'></i>
               <div>
-                <div class='fs-4'>午餐</div>
-                <div class='fw-light'>2022/6/21</div>
+                <div class='fs-4'>{{this.name}}</div>
+                <div class='fw-light'>{{this.date}}</div>
               </div>
             </div>
-            <div class='mx-3'>260</div>
+            <div class='mx-3'>{{this.expanse}}</div>
             <div class='expense-btn'>
               <button type='button' class='btn btn-outline-info btn-sm'>Edit</button>
               <button type='button' class='btn btn-danger btn-sm'>Delete</button>
@@ -31,45 +34,16 @@
           </div>
         </th>
       </tr>
-      <tr>
-        <th>
-          <div class='expense d-flex align-items-center justify-content-between'>
-            <div class='d-flex align-items-center'>
-              <i class='fa-solid fa-utensils fa-2xl mx-3 text-info'></i>
-              <div>
-                <div class='fs-4'>晚餐</div>
-                <div class='fw-light'>2022/6/21</div>
-              </div>
-            </div>
-            <div class='mx-3'>1260</div>
-            <div class='expense-btn'>
-              <button type='button' class='btn btn-outline-info btn-sm'>Edit</button>
-              <button type='button' class='btn btn-danger btn-sm'>Delete</button>
-            </div>
-          </div>
-        </th>
-      </tr>
-      <tr>
-        <th>
-          <div class='expense d-flex align-items-center justify-content-between'>
-            <div class='d-flex align-items-center'>
-              <i class='fa-solid fa-utensils fa-2xl mx-3 text-info'></i>
-              <div>
-                <div class='fs-4'>早餐</div>
-                <div class='fw-light'>2022/6/22</div>
-              </div>
-            </div>
-            <div class='mx-3'>60</div>
-            <div class='expense-btn'>
-              <button type='button' class='btn btn-outline-info btn-sm'>Edit</button>
-              <button type='button' class='btn btn-danger btn-sm'>Delete</button>
-            </div>
-          </div>
-        </th>
-      </tr>
+      {{/each}}
     </table>
   </div>
 </div>
+{{else}}
+  <!-- nothing to display -->
+  <div class='d-flex justify-content-center p-5'>
+    <h4>還沒有支出紀錄喔，趕快新增一筆吧！</h4>
+  </div>
+{{/if}}
 
 <div class='fixed-bottom text-center m-3'>
   <a href='/expanse/new' type='button' class='btn btn-success btn-create w-25'>
