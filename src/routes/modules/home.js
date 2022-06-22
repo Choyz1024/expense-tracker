@@ -8,7 +8,14 @@ router.get('/', async (req, res) => {
   const categoryData = await Category.find().lean().sort('id').catch((err) => console.log(err))
   const expenseData = await Expense.find().lean().sort('_id').catch((err) => console.log(err))
   let totalAmount = 0
-  console.log(expenseData)
+  
+  if (expenseData) {
+    expenseData.forEach((expense) => {
+      expense.icon = categoryData.find((category) => expense.categoryId === category.id).icon
+      totalAmount += expense.expense
+    })
+  }
+
   res.render('index', { categoryData, expenseData, totalAmount })  
 })
 

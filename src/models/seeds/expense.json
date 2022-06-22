@@ -3,31 +3,31 @@
     {
       "name": "計程車",
       "date": "2022-6-21",
-      "category": 2,
+      "categoryId": 2,
       "expense": 250
     },
     {
       "name": "麥當勞",
       "date": "2022-6-21",
-      "category": 4,
+      "categoryId": 4,
       "expense": 149
     },
     {
       "name": "看電影",
       "date": "2022-6-21",
-      "category": 3,
+      "categoryId": 3,
       "expense": 220
     },
     {
       "name": "房租",
       "date": "2022-6-21",
-      "category": 1,
+      "categoryId": 1,
       "expense": 9000
     },
     {
       "name": "買交換禮物",
       "date": "2022-6-21",
-      "category": 5,
+      "categoryId": 5,
       "expense": 500
     }
   ]
