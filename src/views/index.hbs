@@ -1,7 +1,7 @@
 <div class='d-flex flex-column bd-highlight justify-content-center align-items-center'>
   <form class='mt-5 w-25'>
     <select class='form-control' id='sort' name='sort' onchange='form.submit()'>
-      <option value='0' hidden>類別</option>
+      <option value='{{sort}}' hidden>{{sortName}}</option>
       {{#each categoryData}}
         <option value='{{this.id}}'>{{this.name}}</option>
       {{/each}}
@@ -47,8 +47,14 @@
   </div>
 {{/if}}
 
-<div class='fixed-bottom text-center m-3'>
-  <a href='/expense/new' type='button' class='btn btn-success btn-create w-25'>
+<div class='fixed-bottom text-center m-5'>
+  {{#if sort}}
+  <a href="/" type='button' class="btn btn-secondary w-25">
+    返回總覽
+  </a>
+  {{else}}
+  <a href='/expense/new' type='button' class='btn btn-success w-25'>
     新增支出
   </a>
+  {{/if}}
 </div>
