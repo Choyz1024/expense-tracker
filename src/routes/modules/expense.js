@@ -19,6 +19,8 @@ router.post('/', (req, res) => {
 })
 
 router.get('/:expenseId/edit', async (req, res) => {
+  const query = req.header('Referer').substr(-1)
+  const sort = query !== '/' ? query : ''
   const _id = req.params.expenseId
   const categoryData = await Category.find()
     .lean()
@@ -28,12 +30,21 @@ router.get('/:expenseId/edit', async (req, res) => {
     .lean()
     .catch((err) => console.log(err))
   expense.categoryName = categoryData.find((category) => category.id === expense.categoryId).name
-  res.render('expense', { categoryData, expense })
+  res.render('expense', { categoryData, expense, sort })
 })
 
 router.put('/:expenseId', (req, res) => {
+  const sort = req.body.sort
+  const redirectUrl = sort ? '/?sort=' + sort : '/'
   const _id = req.params.expenseId
-  Expense.findOneAndUpdate({ _id }, req.body)
+  Expense.updateOne({ _id }, req.body)
+    .then(() => res.redirect(redirectUrl))
+    .catch((err) => console.log(err))
+})
+
+router.delete('/:expenseId', (req, res) => {
+  const _id = req.params.expenseId
+  Expense.remove({ _id })
     .then(() => res.redirect('/'))
     .catch((err) => console.log(err))
 })

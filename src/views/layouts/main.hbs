@@ -33,5 +33,18 @@
       integrity='sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ'
       crossorigin='anonymous'
     ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous">
+    </script>
+    <script>
+      $('#confirmDelete').on('show.bs.modal', function (e) {
+          const btn = $(e.relatedTarget);
+          const url = '/expense/' + btn.data('id') + '?_method=DELETE'
+          const modal = $(this);
+          modal.find('#form').attr('action' ,url)
+      });
+    </script>
   </body>
 </html>
