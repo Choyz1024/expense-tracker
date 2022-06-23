@@ -48,9 +48,12 @@
 </div>
 {{else}}
   <!-- nothing to display -->
-  <div class='d-flex justify-content-center p-5'>
-    <h4>還沒有支出紀錄喔，趕快新增一筆吧！</h4>
+  
+  <div class='d-flex flex-column justify-content-center p-5'>
+    <h4>{{#if sort}}此類別{{/if}}還沒有支出紀錄喔，</h4>
+    <h4 class="text-center">趕快新增一筆吧！</h4>   
   </div>
+  
 {{/if}}
 
 <div class='fixed-bottom text-center m-5'>

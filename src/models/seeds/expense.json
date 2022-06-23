@@ -1,32 +1,72 @@
 {
   "results": [
     {
+      "id": 1,
       "name": "計程車",
-      "date": "2022-06-21",
+      "date": "2022-06-20",
       "categoryId": 2,
       "expense": 250
     },
     {
+      "id": 2,
       "name": "麥當勞",
       "date": "2022-06-21",
       "categoryId": 4,
       "expense": 149
     },
     {
+      "id": 3,
       "name": "看電影",
       "date": "2022-06-21",
       "categoryId": 3,
       "expense": 220
     },
     {
+      "id": 4,
       "name": "房租",
-      "date": "2022-06-21",
+      "date": "2022-06-22",
       "categoryId": 1,
       "expense": 9000
     },
     {
+      "id": 5,
       "name": "買交換禮物",
       "date": "2022-06-21",
+      "categoryId": 5,
+      "expense": 500
+    },
+    {
+      "id": 6,
+      "name": "Uber",
+      "date": "2022-06-05",
+      "categoryId": 2,
+      "expense": 250
+    },
+    {
+      "id": 7,
+      "name": "肯德基",
+      "date": "2022-06-06",
+      "categoryId": 4,
+      "expense": 149
+    },
+    {
+      "id": 8,
+      "name": "買遊戲",
+      "date": "2022-06-06",
+      "categoryId": 3,
+      "expense": 1220
+    },
+    {
+      "id": 9,
+      "name": "電費",
+      "date": "2022-06-12",
+      "categoryId": 1,
+      "expense": 1000
+    },
+    {
+      "id": 10,
+      "name": "買快篩",
+      "date": "2022-06-13",
       "categoryId": 5,
       "expense": 500
     }
