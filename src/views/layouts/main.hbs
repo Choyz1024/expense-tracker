@@ -18,7 +18,7 @@
       <nav class='navbar fixed-top navbar-dark bg-dark'>
         <div class='container h-100'>
           <a class='navbar-brand' href='/'>
-            {{#if user.name}}{{user.name}}的{{/if}}家庭記帳本
+            {{#if user.name}}{{user.name}}的{{else}}家庭{{/if}}記帳本
           </a>
           {{#if isAuthenticated}}
           <a href='/users/logout' class='btn btn-outline-light'>Logout</a>
