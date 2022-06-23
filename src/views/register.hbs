@@ -1,7 +1,8 @@
-<div class='row mt-5'>
-  <div class='col-md-6 m-auto w-25 mt-5'>
+<div class='d-flex flex-column bd-highlight justify-content-center align-items-center'>
+  <div class='mt-5 w-25'>
     <div class='card card-body'>
       <h1 class='text-center my-2'>Register</h1>
+      {{> message}}
       <form action='/users/register' method='POST'>
         <div class='mb-3'>
           <label for='name' class='mb-2'>Name</label>

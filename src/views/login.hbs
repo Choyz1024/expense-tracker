@@ -1,7 +1,8 @@
-<div class='row mt-5'>
-  <div class='col-md-6 m-auto w-25 mt-5'>
+<div class='d-flex flex-column bd-highlight justify-content-center align-items-center'>
+  <div class='mt-5 w-25'>
     <div class='card card-body'>
       <h1 class='text-center my-2'>Login</h1>
+      {{> message}}
       <form action='/users/login' method='POST'>
         <div class='mb-3'>
           <label for='email' class='mb-2'>Email</label>
@@ -19,7 +20,7 @@
           />
         </div>
         <div class='d-grid gap-2 mt-4'>
-          <button type='submit' class='btn btn-primary mb-1'>Login</button>
+          <button type='submit' class='btn btn-primary mb-2'>Login</button>
           <a href='/auth/facebook' class='btn btn-info'>Facebook Login</a>
         </div>
       </form>

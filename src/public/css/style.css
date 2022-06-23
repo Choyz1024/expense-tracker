@@ -1,5 +1,5 @@
 .body-container {
-  margin-top: 3%;
+  margin-top: 5%;
 }
 
 .expense {
@@ -14,4 +14,8 @@
 
 .icon {
   width: 20px;
+}
+
+.card-body {
+  width: 500px;
 }
