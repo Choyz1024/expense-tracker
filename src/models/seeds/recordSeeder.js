@@ -1,16 +1,19 @@
+const User = require('../User')
 const Expense = require('../Expense')
 const expenseList = require('./expense.json').results
 
 const USER_LIST = [
   {
-    name: '廣志',
     email: 'user1@example.com',
     password: '12345678',
+    name: '廣志',
+    type: 'email',
   },
   {
-    name: '美冴',
     email: 'user2@example.com',
     password: '12345678',
+    name: '美冴',
+    type: 'email',
   },
 ]
 
@@ -26,15 +29,24 @@ db.on('error', () => {
 })
 
 db.once('open', async () => {
-  console.log('Seeding: expenseSeeder ... ')
+  console.log('Seeding: recordSeeder ... ')
 
-  USER_LIST.map(async (user) => {
-    const salt = await bcrypt.genSalt(10)
-    const hash = await bcrypt.hash(user.password, salt)
-    console.log(hash)
-  })
+  await Promise.all(
+    USER_LIST.map(async (user, userIndex) => {
+      user.password = await bcrypt.hash(user.password, 10)
+      const createdUser = await User.create(user)
+      await Promise.all(
+        expenseList.map(async (expense) => {
+          if (userIndex === parseInt(expense.id / 6)) {
+            expense.userId = createdUser._id
+            await Expense.create(expense)
+          }
+        })
+      )
+    })
+  )
 
-  console.log('Database seeding completed successfully.')
+  console.log('Record seeding completed successfully.')
   db.close()
   process.exit()
 })

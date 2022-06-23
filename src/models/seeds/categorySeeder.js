@@ -12,12 +12,11 @@ db.on('error', () => {
 })
 
 db.once('open', async () => {
-
   console.log('Seeding: categorySeeder ... ')
 
   await Category.create(categoryList)
 
-  console.log('Database seeding completed successfully.')
+  console.log('Category seeding completed successfully.')
 
   db.close()
   process.exit()
