@@ -1,6 +1,6 @@
-<div class="mt-5">
-  <div class='d-flex flex-column bd-highlight justify-content-center align-items-center'>
-    <form class='mt-5 w-25'>
+<div class='row mt-5'>
+  <div class='col-10 col-sm-8 col-md-6 col-lg-4 mx-auto mt-5'>
+    <form class='mt-5'>
       <select class='form-control' id='sort' name='sort' onchange='form.submit()'>
         <option value={{sort}} hidden>{{sortName}}</option>
         {{#each categoryData}}
@@ -8,14 +8,15 @@
         {{/each}}
       </select>
     </form>
-    <div class='total mt-5 w-25'>
+    <div class='total mt-5'>
       <div class='fw-bold'>總金額：</div>
       <div class='float-end fw-bold mx-3' style='color: darkorange; font-size: 500%;'>{{totalAmount}}</div>
     </div>
 
   {{#if expenseData}}
-    <div class='my-5 w-25'>
-      <table class='table table-striped'>
+    <div class='col-8 col-sm-10 col-md-12 col-lg-12 mt-5'>
+      <div>
+      <table class='table table-striped '>
         {{#each expenseData}}
         <tr>
           <th>

@@ -1,11 +1,11 @@
-<div class="mt-5">
-  <div class='d-flex flex-column bd-highlight justify-content-center align-items-center'>
+<div class='row mt-5'>
+  <div class='col-10 col-sm-8 col-md-6 col-lg-4 mx-auto mt-5'>
     {{#if expense}}
     <div class='fs-1 mt-5'>修改支出</div>
-    <form class='mt-5 w-25' action='/expense/{{expense._id}}?_method=PUT' method='POST'>
+    <form class='mt-5' action='/expense/{{expense._id}}?_method=PUT' method='POST'>
     {{else}}
     <div class='fs-1 mt-5'>新增支出</div>
-    <form class='mt-5 w-25' action='/expense' method='POST'>
+    <form class='mt-5' action='/expense' method='POST'>
     {{/if}}
       <div class='d-inline-flex align-items-center mb-5 w-100'>
         <label for='name' class='form-label'>名稱<span class='text-danger'>*</span>：</label>
