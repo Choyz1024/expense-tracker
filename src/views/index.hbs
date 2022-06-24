@@ -1,82 +1,84 @@
-<div class='d-flex flex-column bd-highlight justify-content-center align-items-center'>
-  <form class='mt-5 w-25'>
-    <select class='form-control' id='sort' name='sort' onchange='form.submit()'>
-      <option value={{sort}} hidden>{{sortName}}</option>
-      {{#each categoryData}}
-        <option value={{this.id}}>{{this.name}}</option>
-      {{/each}}
-    </select>
-  </form>
-  <div class='total mt-5 w-25'>
-    <div class='fw-bold'>總金額：</div>
-    <div class='float-end fw-bold mx-3' style='color: darkorange; font-size: 500%;'>{{totalAmount}}</div>
-  </div>
+<div class="mt-5">
+  <div class='d-flex flex-column bd-highlight justify-content-center align-items-center'>
+    <form class='mt-5 w-25'>
+      <select class='form-control' id='sort' name='sort' onchange='form.submit()'>
+        <option value={{sort}} hidden>{{sortName}}</option>
+        {{#each categoryData}}
+          <option value={{this.id}}>{{this.name}}</option>
+        {{/each}}
+      </select>
+    </form>
+    <div class='total mt-5 w-25'>
+      <div class='fw-bold'>總金額：</div>
+      <div class='float-end fw-bold mx-3' style='color: darkorange; font-size: 500%;'>{{totalAmount}}</div>
+    </div>
 
-{{#if expenseData}}
-  <div class='my-5 w-25'>
-    <table class='table table-striped'>
-      {{#each expenseData}}
-      <tr>
-        <th>
-          <div class='expense d-flex align-items-center justify-content-between'>
-            <div class='d-flex align-items-center'>
-              <div class="icon mx-4">
-                <i class='{{this.icon}} fa-xl  text-info'></i>
+  {{#if expenseData}}
+    <div class='my-5 w-25'>
+      <table class='table table-striped'>
+        {{#each expenseData}}
+        <tr>
+          <th>
+            <div class='expense d-flex align-items-center justify-content-between'>
+              <div class='d-flex align-items-center'>
+                <div class="icon mx-4">
+                  <i class='{{this.icon}} fa-xl  text-info'></i>
+                </div>
+                <div>
+                  <div class='fs-5'>{{this.name}}</div>
+                  <div class='fs-6 fw-light mt-1'>{{this.date}}</div>
+                </div>
               </div>
-              <div>
-                <div class='fs-5'>{{this.name}}</div>
-                <div class='fs-6 fw-light mt-1'>{{this.date}}</div>
+              <div class='mx-3'>{{this.expense}}</div>
+              <div class='expense-btn'>
+                <a href="/expense/{{this._id}}/edit" type='button' class='btn btn-outline-info btn-sm'>Edit</a>
+                <button 
+                  type='button'
+                  class='btn btn-danger btn-sm'
+                  data-id='{{this._id}}'
+                  data-bs-toggle='modal'
+                  data-bs-target='#confirmDelete'
+                >Delete</button>
               </div>
             </div>
-            <div class='mx-3'>{{this.expense}}</div>
-            <div class='expense-btn'>
-              <a href="/expense/{{this._id}}/edit" type='button' class='btn btn-outline-info btn-sm'>Edit</a>
-              <button 
-                type='button'
-                class='btn btn-danger btn-sm'
-                data-id='{{this._id}}'
-                data-bs-toggle='modal'
-                data-bs-target='#confirmDelete'
-              >Delete</button>
-            </div>
-          </div>
-        </th>
-      </tr>
-      {{/each}}
-    </table>
+          </th>
+        </tr>
+        {{/each}}
+      </table>
+    </div>
   </div>
-</div>
-{{else}}
-  <!-- nothing to display -->
-  
-  <div class='d-flex flex-column justify-content-center p-5'>
-    <h4>{{#if sort}}此類別{{/if}}還沒有支出紀錄喔，</h4>
-    <h4 class="text-center">趕快新增一筆吧！</h4>   
-  </div>
-  
-{{/if}}
-
-<div class='fixed-bottom text-center m-5'>
-  {{#if sort}}
-  <a href="/" type='button' class="btn btn-secondary w-25">
-    返回總覽
-  </a>
   {{else}}
-  <a href='/expense/new' type='button' class='btn btn-success w-25'>
-    新增支出
-  </a>
+    <!-- nothing to display -->
+    
+    <div class='d-flex flex-column justify-content-center p-5'>
+      <h4>{{#if sort}}此類別{{/if}}還沒有支出紀錄喔，</h4>
+      <h4 class="text-center">趕快新增一筆吧！</h4>   
+    </div>
+    
   {{/if}}
-</div>
 
-<div class='modal fade' id='confirmDelete' tabindex='-1' aria-hidden='true'>
-  <div class='modal-dialog modal-sm modal-dialog-centered'>
-    <div class='modal-content'>
-      <div class='modal-body'>
-        <p>Are you sure you want to delete?</p>
-        <form id='form' action='' method='POST'>
-          <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Cancel</button>
-          <button type='submit' class='btn btn-danger text-white'>delete</button>
-        </form>
+  <div class='fixed-bottom text-center m-5'>
+    {{#if sort}}
+    <a href="/" type='button' class="btn btn-secondary w-25">
+      返回總覽
+    </a>
+    {{else}}
+    <a href='/expense/new' type='button' class='btn btn-success w-25'>
+      新增支出
+    </a>
+    {{/if}}
+  </div>
+
+  <div class='modal fade' id='confirmDelete' tabindex='-1' aria-hidden='true'>
+    <div class='modal-dialog modal-sm modal-dialog-centered'>
+      <div class='modal-content'>
+        <div class='modal-body'>
+          <p>Are you sure you want to delete?</p>
+          <form id='form' action='' method='POST'>
+            <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Cancel</button>
+            <button type='submit' class='btn btn-danger text-white'>delete</button>
+          </form>
+        </div>
       </div>
     </div>
   </div>
