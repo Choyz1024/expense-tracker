@@ -21,7 +21,7 @@ router.post('/', (req, res) => {
 
 router.get('/:expenseId/edit', async (req, res) => {
   //取得edit前index是否有依類別查詢的狀態
-  const sort = req.header('Referer').substr(-1)
+  const sort = req.header('Referer').slice(-1)
 
   const userId = req.user._id
   const _id = req.params.expenseId
