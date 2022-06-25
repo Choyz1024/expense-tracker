@@ -23,7 +23,7 @@ router.get('/:expenseId/edit', async (req, res) => {
   //取得edit前index是否有依類別查詢的狀態
   const query = req.header('Referer').substr(-1)
   const sort = query !== '/' ? query : ''
-  
+
   const userId = req.user._id
   const _id = req.params.expenseId
   const categoryData = await Category.find()
@@ -40,8 +40,7 @@ router.get('/:expenseId/edit', async (req, res) => {
 router.put('/:expenseId', (req, res) => {
   //設定edit後redirect的網址
   let sort = req.body.sort
-  const categoryId = req.body.categoryId
-  if (sort) sort = sort === categoryId ? sort : categoryId
+  if (sort) sort = req.body.categoryId
 
   const redirectUrl = sort ? '/?sort=' + sort : '/'
   const userId = req.user._id
